@@ -4,22 +4,21 @@ USE study;
 CREATE TABLE course(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL,
+    description VARCHAR(1255),
     etcs_point INT(10),
     examination_form VARCHAR(255),
     teacher_id INTEGER REFERENCES teacher(id),
     teaching_from VARCHAR(50),
-    length_of_course INT(10),
-    room_id INTEGER NOT NULL,
+    length_of_course VARCHAR(255),
+    room_id VARCHAR(255),
     maximum_students INT(10),
-    minimum_students INT(10) NOT NULL,
-    start_date DATE,
-    end_date DATE,
-    minimum_requirements_for_students VARCHAR(255),
+    minimum_students INT(10),
+    start_date VARCHAR(255),
+    end_date VARCHAR(255),
+    minimum_requirements_for_students VARCHAR(1255),
     literature VARCHAR(255),
     system_requirements VARCHAR(255),
-    price_in NUMERIC(5,2) NOT NULL,
-    jobs_posted INT(11)
+    price_in NUMERIC(5,2)
 );
 
 CREATE TABLE teacher(
@@ -27,7 +26,7 @@ CREATE TABLE teacher(
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
     socialsequrity VARCHAR(25),
-    date_of_employment DATE,
+    date_of_employment VARCHAR(255),
     salary INT(10),
     address_line1 VARCHAR(50),
     address_line2 VARCHAR(50),
@@ -38,11 +37,11 @@ CREATE TABLE teacher(
     email_address VARCHAR(50) NOT NULL,
     certified VARCHAR(255) NOT NULL,
     area_code VARCHAR(50),
-    phonenumber INT(10),
+    phonenumber VARCHAR(255),
     emergency_contact_name VARCHAR(50),
     emergency_contact_relation VARCHAR(255),
     emergency_contact_phonenumber VARCHAR(50),
-    timezone TIME
+    timezone VARCHAR(255)
 );
 
 CREATE TABLE coursebank(
@@ -75,11 +74,11 @@ CREATE TABLE freelance(
     softskill VARCHAR(255),
     hardskill  VARCHAR(255),
     hourly_rate NUMERIC(5, 2) NOT NULL,
-    total_earned NUMERIC(5, 2) NOT NULL,
+    total_earned NUMERIC(7, 2) NOT NULL,
     numbers_of_jobs INT(11),
     hours_worked INT(11),
-    freelancerating_received NUMERIC(2, 2) NOT NULL,
-    freelance_comments_received int(11),
+    freelancerating_received NUMERIC(4, 2) NOT NULL,
+    freelance_comments_received VARCHAR(255),
     company_rating_given int(11),
     company_rating_comments_given VARCHAR(255),
     portfolio VARCHAR(500)
